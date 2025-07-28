@@ -1,20 +1,19 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { _ } from 'compiled-i18n'
 
 export default component$(() => {
   return (
     <>
       <h1>Hi 👋</h1>
       <div>
-        Pagina inicio
+        Pagina proyectos
       </div>
     </>
   );
 });
 
 export const head: DocumentHead = {
-  title: "Sebastian Cardoso | Fullstack Developer",
+  title: "Sebastian",
   meta: [
     {
       name: "description",

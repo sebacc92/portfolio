@@ -1,4 +1,4 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, getLocale, useSignal } from "@builder.io/qwik";
 import { Button } from "./ui/button/button";
 import { LuMenu, LuX } from "@qwikest/icons/lucide";
 import { Link, useLocation } from "@builder.io/qwik-city";
@@ -10,12 +10,13 @@ import { ThemeSwitch } from "~/components/ThemeSwitch";
 export default component$(() => {
   const isMenuOpen = useSignal(false);
   const loc = useLocation();
+  const currentLocale = getLocale()
 
   const navigation = [
     { name: _`home`, href: "/" },
-    { name: _`projects`, href: "/proyectos" },
+    { name: _`projects`, href: "/projects" },
     { name: _`about`, href: "/about" },
-    { name: _`contact`, href: "/contacto" },
+    { name: _`contact`, href: "/contact" },
   ];
 
   return (
@@ -32,7 +33,7 @@ export default component$(() => {
             {navigation.map((item) => (
               <Link
                 key={item.name}
-                href={item.href}
+                href={`/${currentLocale}${item.href}`}
                 class={`transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
                   loc.url.pathname === item.href 
                     ? "text-blue-600 dark:text-blue-400 font-semibold" 

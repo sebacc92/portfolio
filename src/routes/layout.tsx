@@ -40,9 +40,10 @@ export const onRequest: RequestHandler = async ({
 
 export default component$(() => {
   return (
-    <div>
+    <div class="min-h-screen flex flex-col">
       <Header />
-      <main>
+      <div class="h-16 flex-shrink-0"></div>
+      <main class="flex-1">
         <Slot />
       </main>
       <Footer />
