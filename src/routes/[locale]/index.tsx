@@ -81,7 +81,19 @@ export default component$(() => {
               </Button>
             </Link>
 
-            <Button look="outline" size="lg" class="group bg-background/80 backdrop-blur-sm border-2 hover:bg-background/90 transition-all duration-300 shadow-lg hover:shadow-xl dark:bg-secondary dark:hover:bg-secondary/80">
+            <Button 
+              look="outline" 
+              size="lg" 
+              class="group bg-background/80 backdrop-blur-sm border-2 hover:bg-background/90 transition-all duration-300 shadow-lg hover:shadow-xl dark:bg-secondary dark:hover:bg-secondary/80"
+              onClick$={() => {
+                const link = document.createElement('a');
+                link.href = '/example_cv.pdf';
+                link.download = 'Sebastian_Cardoso_CV.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
               <LuDownload class="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
               {_`downloadCV`}
             </Button>
