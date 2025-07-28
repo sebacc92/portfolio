@@ -1,15 +1,14 @@
 import { component$, getLocale, useSignal } from "@builder.io/qwik";
 import { Button } from "./ui/button/button";
 import { LuMenu, LuX } from "@qwikest/icons/lucide";
-import { Link, useLocation } from "@builder.io/qwik-city";
 import { _ } from "compiled-i18n";
 import Logo from "~/components/Logo";
 import { LocaleSelector } from "./locale-selector";
 import { ThemeSwitch } from "~/components/ThemeSwitch";
+import { NavLink } from "./NavLink";
 
 export default component$(() => {
   const isMenuOpen = useSignal(false);
-  const loc = useLocation();
   const currentLocale = getLocale()
 
   const navigation = [
@@ -31,17 +30,14 @@ export default component$(() => {
           {/* Desktop Navigation */}
           <div class="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <Link
+              <NavLink
                 key={item.name}
                 href={`/${currentLocale}${item.href}`}
-                class={`transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
-                  loc.url.pathname === item.href 
-                    ? "text-blue-600 dark:text-blue-400 font-semibold" 
-                    : "text-gray-700 dark:text-gray-300"
-                }`}
+                class="transition-colors hover:text-blue-600 dark:hover:text-blue-400 text-gray-700 dark:text-gray-300"
+                activeClass="!text-blue-600 dark:!text-blue-400 !font-semibold"
               >
                 {item.name}
-              </Link>
+              </NavLink>
             ))}
           </div>
 
@@ -65,18 +61,15 @@ export default component$(() => {
           <div class="md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/95 backdrop-blur-md">
             <div class="flex flex-col space-y-3 pt-4">
               {navigation.map((item) => (
-                <a
+                <NavLink
                   key={item.name}
-                  href={item.href}
-                  class={`px-4 py-3 rounded-lg transition-all duration-300 font-medium ${
-                    loc.url.pathname === item.href 
-                      ? "bg-blue-600 text-white shadow-lg" 
-                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                  }`}
+                  href={`/${currentLocale}${item.href}`}
+                  class="px-4 py-3 rounded-lg transition-all duration-300 font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  activeClass="!bg-blue-600 !text-white !shadow-lg"
                   onClick$={() => (isMenuOpen.value = false)}
                 >
                   {item.name}
-                </a>
+                </NavLink>
               ))}
             </div>
           </div>

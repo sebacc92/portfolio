@@ -2,9 +2,7 @@
   "locale": "es",
   "name": "es",
   "translations": {
-    "welcome": "Hola Mundo",
-    "happy_coding": "Feliz programando.",
-    "herramientas que necesitamos:": "herramientas que necesitamos:",
+    "welcome": "Hola 👋, soy",
     "home": "Inicio",
     "projects": "Proyectos",
     "about": "Sobre mí",
