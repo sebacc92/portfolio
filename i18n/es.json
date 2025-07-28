@@ -8,6 +8,11 @@
     "home": "Inicio",
     "projects": "Proyectos",
     "about": "Sobre mí",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "developer": "Desarrollador Fullstack",
+    "description": "Creando experiencias digitales increíbles con tecnologías modernas",
+    "viewProjects": "Ver Proyectos",
+    "downloadCV": "Descargar CV",
+    "allRightsReserved": "Todos los derechos reservados."
   }
 }
